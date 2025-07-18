@@ -1,0 +1,39 @@
+ {
+  "jenkins_url": "http://jenkins.sohan.cn:8900/",
+  "username": "chenyichen",
+  "password_or_token": "your-password-or-api-token",
+  "branch": "master",
+  "jobs": [
+    {
+      "name": "tdms-stock-boot",
+      "description": "主应用构建",
+      "parameters": {}
+    },
+    {
+      "name": "tdms-stock-boot-slave-rights-collection", 
+      "description": "权限收集服务构建",
+      "parameters": {}
+    },
+    {
+      "name": "your-third-job",
+      "description": "第三个任务（示例）",
+      "parameters": {
+        "ENV": "production"
+      }
+    }
+  ],
+  "first_job": "tdms-stock-boot",
+  "second_job": "tdms-stock-boot-slave-rights-collection",
+  "enable_polling": false,
+  "polling_url": "http://your-api-endpoint/status",
+  "polling_config": {
+    "max_attempts": 60,
+    "interval_seconds": 30,
+    "expected_status_code": 200
+  },
+  "build_config": {
+    "timeout_seconds": 1800,
+    "check_interval_seconds": 30
+  },
+  "wait_between_builds": 30
+}
